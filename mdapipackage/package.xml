@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>FieldSetController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>fieldsetCancel</members>
+        <members>fieldsetSave</members>
+        <members>fieldsetSaveMessage</members>
+        <members>fieldsetSaveTitle</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>lwcFieldSet</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>45.0</version>
+</Package>

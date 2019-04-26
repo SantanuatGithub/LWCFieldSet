@@ -1,0 +1,21 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "LWCFieldSet",
+            "versionName": "ver 0.4",
+            "versionNumber": "0.4.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "45.0",
+    "packageAliases": {
+        "LWCFieldSet": "0Ho0o000000KyroCAC",
+        "LWCFieldSet@0.1.0-1": "04t0o000003YlL0AAK",
+        "LWCFieldSet@0.2.0-1": "04t0o000003YlVgAAK",
+        "LWCFieldSet@0.3.0-1": "04t0o000003YlYVAA0",
+        "LWCFieldSet@0.4.0-1": "04t0o000003YlYaAAK"
+    }
+}

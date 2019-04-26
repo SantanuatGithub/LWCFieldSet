@@ -1,0 +1,78 @@
+<!--
+  @name: lwcFieldSet
+  @author: Santanu Pal
+  @date: 17 APR 2019
+  @description: describes as field set component is being used from subscriber org.
+
+  Copyright (c) 2019   
+--> 
+<template>
+        <lightning-card title={title} icon-name={iconName} class="slds-m-top_xxx-small">  
+            <div if:true={hasTitle} class="headerBorderStyle"></div>
+                <lightning-layout multiple-rows="true" vertical-align="center">
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="12">                                    
+                        <lightning-record-edit-form object-api-name={sobjectName}
+                                                    record-id={currentRecordId}
+                                                    record-type-id={recordTypeId} 
+                                                    onsuccess={handleSuccess}   
+                                                    class="recordEditFormClass">  
+                            <lightning-messages></lightning-messages>                                              
+                            <template if:true={fields}>
+                                <template if:false={noSectionHeader}>  
+                                    <template for:each={section} for:item="sec" for:index="index"> 
+                                            <div key={sec}>                                            
+                                                <h3 class="slds-section__title slds-theme_shade slds-m-top_small">
+                                                    <span class="slds-truncate slds-p-horizontal_small">{sec.key}</span>
+                                                </h3>
+                                                <template if:true={firstSecLoop}>
+                                                    <div class="slds-grid slds-wrap slds-grid_pull-padded slds-m-top_x-small">
+                                                        <template for:each={currentfields} for:item="field" for:index="index" > 
+                                                            <div key={field} class={columnProperty}>
+                                                                <template if:false={readOnly}>                                             
+                                                                    <lightning-input-field field-name={field} 
+                                                                                        onchange={captureFieldValues}>
+                                                                    </lightning-input-field> 
+                                                                </template>
+                                                                <template if:true={readOnly}>                                             
+                                                                    <lightning-output-field field-name={field}></lightning-output-field> 
+                                                                </template>
+                                                            </div>
+                                                        </template>
+                                                    </div>                                    
+                                                </template>                                   
+                                            </div>
+                                    </template> 
+                                </template>
+                                <template if:true={noSectionHeader}>
+                                    <h3 class="slds-section__title slds-theme_shade slds-m-top_small">
+                                        <span class="slds-truncate slds-p-horizontal_small">{generalInformation}</span>
+                                    </h3>
+                                    <template if:true={checkValidFields}>
+                                        <div class="slds-grid slds-wrap slds-grid_pull-padded slds-m-top_x-small">
+                                            <template for:each={currentfields} for:item="field" for:index="index" >                                                    
+                                                <div key={field} class={columnProperty}>
+                                                    <template if:false={readOnlyMode}>                                             
+                                                        <lightning-input-field field-name={field} 
+                                                                            onchange={captureFieldValues}>
+                                                        </lightning-input-field> 
+                                                    </template>
+                                                    <template if:true={readOnlyMode}>                                             
+                                                        <lightning-output-field field-name={field}></lightning-output-field> 
+                                                    </template>
+                                                </div>
+                                            </template>
+                                        </div>  
+                                    </template>                                  
+                                </template>                            
+                            </template>                                                        
+                        </lightning-record-edit-form>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <div  if:true={saveButtonVisibility} class="slds-modal__footer slds-m-top_medium" >
+                    <div class="slds-align_absolute-center">
+                        <lightning-button  variant="neutral" type="submit" name={cancel} label={cancel} onclick={doReset}></lightning-button> 
+                        <lightning-button  variant="brand" type="submit" name={save} label={save} onclick={doSave} class="slds-m-left_small"></lightning-button>
+                    </div>
+                </div>
+        </lightning-card>     
+    </template>

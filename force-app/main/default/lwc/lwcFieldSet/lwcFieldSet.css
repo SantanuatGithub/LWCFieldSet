@@ -1,0 +1,10 @@
+/* lwcFieldSet.css*/
+
+.headerBorderStyle{
+    border-top: 1px solid rgb(221, 219, 218);
+    width:100%;
+}
+
+.recordEditFormClass{
+    margin-top:-6%;
+}
